@@ -18,8 +18,8 @@ class CacheHandler(BaseHandler):
     @asynchronous
     def get(self):
         # q = self.get_argument('q', '') # raise UnicodeDecodeError
-        if '?q=' in self.request.uri:
-            q = self.request.uri.replace('?q=', '')
+        if 'cache?q=' in self.request.uri:
+            q = self.request.uri.replace('cache?q=', '')
         s = self.get_argument('s', '')
         if s == '1':
             s = 'http://cn.nytimes.com/opinion/20131207/c07kristof/'
@@ -31,6 +31,7 @@ class CacheHandler(BaseHandler):
             q = s
         if not q:
             self.write('you find nothing')
+        print(q)
         headers = dict(self.request.headers)
         headers["Host"] = urlparse(q).netloc
         self.q = q
