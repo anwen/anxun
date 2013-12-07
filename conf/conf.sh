@@ -10,7 +10,6 @@ sudo apt-get install libcurl4-gnutls-dev # for pycurl
 
 sudo pip install tornado
 sudo pip install pycurl
-Exception: curl-config' not found -- please install the libcurl development files or specify --curl-config=/path/to/curl-config
 
 
 mkdir /var/www/anxun -p
