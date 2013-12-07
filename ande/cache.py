@@ -17,6 +17,8 @@ class CacheHandler(BaseHandler):
     @asynchronous
     def get(self):
         q = self.get_argument('q', '')
+        if q == 1:
+            q = 'http://cn.nytimes.com/opinion/20131207/c07kristof/'
         if not q:
             self.write('you find nothing')
         # headers = dict(self.request.headers)

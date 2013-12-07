@@ -1,4 +1,16 @@
 sudo apt-get install git
+sudo apt-get install make
+sudo apt-get install curl
+sudo apt-get install libcurl
+
+
+sudo apt-get install python-pip
+sudo apt-get install python-dev
+sudo apt-get install libcurl4-gnutls-dev # for pycurl
+
+sudo pip install tornado
+sudo pip install pycurl
+Exception: curl-config' not found -- please install the libcurl development files or specify --curl-config=/path/to/curl-config
 
 
 mkdir /var/www/anxun -p
@@ -10,11 +22,13 @@ cd .git/hooks
 # wget http://utsl.gen.nz/git/post-update
 scp conf/post-update do:/var/www/anxun/.git/hooks # local
 chmod +x post-update
+
+# at local:
+git remote add pro do:/var/www/anxun/
+git push pro master
 # after push
 cd ../..
 git checkout master
 
-at local:
-git remote rm pro
-git remote add pro aaw:/var/www/anwen/
-git push pro
+
+echo "export LC_ALL=en_US.UTF-8"  >>  /etc/profile

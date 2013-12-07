@@ -34,5 +34,5 @@ start:
 
 deploy:
 	@echo "starting deploy"
-	git push origin master
-	git push pro
+	# git push origin master
+	git push pro master
