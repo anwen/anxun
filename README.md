@@ -5,7 +5,7 @@
 
 * 纪念曼德拉而建立
 * 致力于帮助人们自由搜寻
-* 项目网址：[安问](http://x.anwensf.com/)
+* 项目网址：[安寻](http://x.anwensf.com/)
 * 使用tornado
 * 欢迎大家批评指正 &fork &pull-request &参与
 * V-0.0.9 活跃开发中
