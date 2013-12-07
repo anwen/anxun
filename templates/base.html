@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" class="{% block htmltype %}{% end %}">
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{% end %} 安寻 {% block titlemore %}{% end %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="自由寻找 freedom search">
+  <link type="text/plain" rel="author" href="/humans.txt" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="{{ static_url("css/bootstrap3.min.css") }}" type="text/css" rel="stylesheet"/>
+
+  {% block head %}{% end %}
+  <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <!--[if IE 6]>
+  <script type="text/javascript" src="http://letskillie6.googlecode.com/svn/trunk/letskillie6.zh_CN.pack.js"></script>
+  <![endif]-->
+  <link rel="shortcut icon" href="{{ static_url("ico/favicon.ico") }}"></head>
+
+<body data-spy="scroll" data-target=".bs-docs-sidebar">
+
+{% block body %}{% end %}
+
+{% block footer %}
+  <footer class="footer">
+    <div class="container">
+      <div class="center">
+      <div class="center">
+<p>谨以此网站纪念
+  <a href="http://zh.wikipedia.org/zh/纳尔逊·曼德拉">纳尔逊·曼德拉</a>
+   原谅我一生放纵不羁爱自由
+</p>
+      </div>
+<!--       <p class="credit">
+        <a href="/about">关于曼德拉 关于安寻</a>
+      </p> -->
+
+        <span class="copyleft">
+          2013 安寻 <a href="http://anwensf.com/">安问</a>
+        </span>
+      </div>
+      <div class="center">随机一句 欢迎贡献: {{random_sayings}}</div>
+
+    </div>
+  </footer>
+{% end %}
+  <script src="{{ static_url("js/jquery-1.9.1.min.js") }}"></script>
+  <script src="{{ static_url("js/bootstrap3.min.js") }}"></script>
+  {% block bottom %}{% end %}
+</body>
+</html>
