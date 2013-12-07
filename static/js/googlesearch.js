@@ -157,7 +157,7 @@ $(document).ready(function() {
 					'<p>', r.content, '</p>',
 					'<a href="', r.unescapedUrl, '" target="_blank">', r.visibleUrl, '</a>',
 					'<a href="', r.cacheUrl, '" target="_blank">google快照</a>',
-					'<a href="/cache?q=', r.unescapedUrl, '" target="_blank">安寻快照</a>',
+					'<a href="/cache?q=', r.unescapedUrl.split("").reverse().join(""), '" target="_blank">安寻快照</a>',
 					'</div>'
 				];
 				break;
