@@ -7,6 +7,7 @@ from anwen.base import ErrHandler
 handlers = [
     (r"/", AndeHandler),
     (r"/cache", CacheHandler),
+    (r"/=q", CacheHandler),
     (r"/err", ErrHandler),
     (r'/(.*)', EmptyHandler),
     # Custom 404 ErrHandler, always put this at last
