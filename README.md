@@ -24,6 +24,13 @@
 * [Twitter Bootstrap](https://github.com/twbs/bootstrap/)
 * many other open-source project...
 
+### One more little thing
+- <http://x.anwensf.com/=q?q=moc.fsnewna.x//:ptth> 回文体 ლ(◕‿◕)ლ
+- <http://x.anwensf.com/=q?s=http://anwensf.com> 普通网站 正常访问
+- <http://x.anwensf.com/=q?s=http://www.youtube.com/?hl=zh-CN> 被gfw识别出 被墙
+- <http://x.anwensf.com/=q?q=NC-hz=lh?/moc.ebutuoy.www//:ptth> 服务器反转字符串 正常访问
+
+
 ### License
 * Copyleft ^,^ 2011-2013 Anwen
 * Released under the MIT license:
