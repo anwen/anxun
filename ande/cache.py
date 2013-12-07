@@ -21,6 +21,8 @@ class CacheHandler(BaseHandler):
             q = 'http://cn.nytimes.com/opinion/20131207/c07kristof/'
         if q == '2':
             q = 'http://www.youtube.com/?hl=zh-CN'
+        if 'ebu' in q:
+            q = q[::-1]
         if not q:
             self.write('you find nothing')
         # headers = dict(self.request.headers)
