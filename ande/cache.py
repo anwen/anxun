@@ -63,11 +63,11 @@ class CacheHandler(BaseHandler):
                 if v:
                     self.set_header(header, v)
             if response.body:
-                domain = '{uri.scheme}://{uri.netloc}/'.format(uri=urlparse(self.q))
+                domain = '{uri.scheme}://{uri.netloc}/'.format(
+                    uri=urlparse(self.q))
                 body = response.body
                 import re
                 url_re = re.compile('href="/(?!/)')
                 body = url_re.sub("href=\"%s" % domain, body)
-                # body = body.replace("href=\"/", "href=\"%s" % domain)
                 self.write(body)
             self.finish()
