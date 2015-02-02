@@ -3,12 +3,14 @@
 
 ### 自由寻找 freedom search
 
-* 纪念曼德拉而建立
-* 致力于帮助人们自由搜寻
-* 项目网址：[安寻](http://x.anwensf.com/)
-* 使用tornado
-* 欢迎大家批评指正 &fork &pull-request &参与
-* V-0.0.9 活跃开发中
+- 纪念曼德拉而建立
+- 致力于帮助人们自由搜寻
+- 项目网址：[安寻](http://x.anwensf.com/)
+- 使用tornado
+- 欢迎大家批评指正 &fork &pull-request &参与
+- V-0.1.0 活跃开发中
+- 越过长城，走向世界。 Across the Great Wall we can reach every corner in the world.
+
 
 ### 更多信息
 * [关于安问](http://anwensf.com/about)

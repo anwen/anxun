@@ -46,8 +46,12 @@ class XHandler(BaseHandler):
             #     'https': 'https://your_ip:your_port',
             #     'http': 'http://your_ip:your_port'
             # }
-            # ret = requests.get(xurl, proxies=proxies, timeout=3)
-            ret = requests.get(xurl, timeout=3)
+            proxies = {
+                'https': 'https://theironislands.f.getqujing.net:39274',
+                'http': 'http://theironislands.f.getqujing.net:39274'
+            }
+            ret = requests.get(xurl, proxies=proxies, timeout=3)
+            # ret = requests.get(xurl, timeout=3)
         except ConnectionError as e:
             self.write({'responseStatus': 'err', 'err': str(e)})
             return
