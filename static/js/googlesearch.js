@@ -75,68 +75,88 @@ $(document).ready(function() {
 		}
 
 		// URL of Google's AJAX search API
-		var apiURL = 'http://ajax.googleapis.com/ajax/services/search/' + settings.type + '?v=1.0&callback=?';
+    // var apiURL = 'http://ajax.googleapis.com/ajax/services/search/' + settings.type + '?v=1.0&callback=?';
+    var apiURL = '/x?atype=' + settings.type;
 		var resultsDiv = $('#resultsDiv');
-
 		$.getJSON(apiURL, {
 			q: settings.term,
 			rsz: settings.perPage,
 			start: settings.page * settings.perPage
 		}, function(r) {
 
-			var results = r.responseData.results;
-			$('#more').remove();
 
-			if (results.length) {
+      if (r.responseStatus =='err'){
 
-				// If results were returned, add them to a pageContainer div,
-				// after which append them to the #resultsDiv:
+        resultsDiv.empty();
+        $('<p>', {
+          className: 'notFound',
+          // html: 'Error:'+r.err+'. Try again later~'
+          html: 'Sorry~ Failed to Across the Great Wall. Try again later~'
+        }).hide().appendTo(resultsDiv).fadeIn();
 
-				var pageContainer = $('<div>', {
-					className: 'pageContainer'
-				});
 
-				for (var i = 0; i < results.length; i++) {
-					// Creating a new result object and firing its toString method:
-					pageContainer.append(new result(results[i]) + '');
-				}
+      }else{
 
-				if (!settings.append) {
-					// This is executed when running a new search,
-					// instead of clicking on the More button:
-					resultsDiv.empty();
-				}
 
-				pageContainer.append('<div class="clear"></div>')
-					.hide().appendTo(resultsDiv)
-					.fadeIn('slow');
+      var results = r.responseData.results;
+      $('#more').remove();
 
-				var cursor = r.responseData.cursor;
+      if (results.length) {
 
-				// Checking if there are more pages with results,
-				// and deciding whether to show the More button:
+        // If results were returned, add them to a pageContainer div,
+        // after which append them to the #resultsDiv:
 
-				if (+cursor.estimatedResultCount > (settings.page + 1) * settings.perPage) {
-					$('<div>', {
-						id: 'more'
-					}).appendTo(resultsDiv).click(function() {
-						googleSearch({
-							append: true,
-							page: settings.page + 1
-						});
-						$(this).fadeOut();
-					});
-				}
-			} else {
+        var pageContainer = $('<div>', {
+          className: 'pageContainer'
+        });
 
-				// No results were found for this search.
+        for (var i = 0; i < results.length; i++) {
+          // Creating a new result object and firing its toString method:
+          pageContainer.append(new result(results[i]) + '');
+        }
 
-				resultsDiv.empty();
-				$('<p>', {
-					className: 'notFound',
-					html: 'No Results Were Found!'
-				}).hide().appendTo(resultsDiv).fadeIn();
-			}
+        if (!settings.append) {
+          // This is executed when running a new search,
+          // instead of clicking on the More button:
+          resultsDiv.empty();
+        }
+
+        pageContainer.append('<div class="clear"></div>')
+          .hide().appendTo(resultsDiv)
+          .fadeIn('slow');
+
+        var cursor = r.responseData.cursor;
+
+        // Checking if there are more pages with results,
+        // and deciding whether to show the More button:
+
+        if (+cursor.estimatedResultCount > (settings.page + 1) * settings.perPage) {
+          $('<div>', {
+            id: 'more'
+          }).appendTo(resultsDiv).click(function() {
+            googleSearch({
+              append: true,
+              page: settings.page + 1
+            });
+            $(this).fadeOut();
+          });
+        }
+      } else {
+
+        // No results were found for this search.
+
+        resultsDiv.empty();
+        $('<p>', {
+          className: 'notFound',
+          html: 'No Results Were Found!'
+        }).hide().appendTo(resultsDiv).fadeIn();
+      }
+
+
+
+      }
+
+
 		});
 	}
 
