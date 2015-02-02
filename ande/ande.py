@@ -54,6 +54,4 @@ class XHandler(BaseHandler):
         except Exception as e:
             self.write({'responseStatus': 'err', 'err': str(e)})
             return
-        print ret
-        print ret.text
         self.write(ret.text)
